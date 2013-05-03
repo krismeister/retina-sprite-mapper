@@ -44,6 +44,15 @@ ul.iconic {
 //   }
 // }
 
+
+/* to demonstrate :before placement example
+  see .aperture-before-large below.
+*/
+h3{text-align: center;margin:1em 0 0 0;}
+ul.iconic-large{
+  &,li{list-style: none;margin: 0;padding: 0;}
+}
+
 /* Retina Sprites */
 
 // Assign paths using standard Compass sprite method.
@@ -60,3 +69,16 @@ $sprites2x: sprite-map("icons-retina/*.png", $spacing: 8px); // import 2x sprite
 // .icons-aperture {
 //  @include retina-sprite-item('aperture', $sprites, $sprites2x);
 // }
+
+.aperture-before-large{
+  width: 100%;
+  height: 5em;
+  background: peachpuff;
+  &:before{
+    content:"";
+    @include retina-sprite-item('aperture', $sprites, $sprites2x);
+    position: absolute;
+    left: 50%;
+    bottom: 2em;
+  }
+}
